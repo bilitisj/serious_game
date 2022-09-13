@@ -11,7 +11,7 @@
 
 <!-- ------------- S C R I P T ------------- -->
 <script setup>
-import QcmMulti from './'
+import QcmMulti from './QcmMulti.vue'
 
 
 </script>
