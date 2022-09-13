@@ -3,7 +3,7 @@
     <div class="box">
         <p class="box_text">Case 1</p>
         <div class="box_question">
-
+            <QcmMulti></QcmMulti>
         </div>
     </div>
 </template>
@@ -11,6 +11,7 @@
 
 <!-- ------------- S C R I P T ------------- -->
 <script setup>
+import QcmMulti from './'
 
 
 </script>
