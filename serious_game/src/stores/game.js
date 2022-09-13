@@ -18,7 +18,7 @@ export const useGameStore = defineStore({
         addMembers(members) {
             this.joueurs = [... members]
         },
-        addMember(member) {
+        addAMember(member) {
             this.joueurs.push(member)
         }
     }

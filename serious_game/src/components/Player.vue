@@ -1,6 +1,6 @@
 <!-- ------------- T E M P L A T E ------------- -->
 <template>
-    <p>joueurs</p>
+    <p>{{thePlayer}}</p>
 </template>
 
 

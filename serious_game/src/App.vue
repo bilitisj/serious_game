@@ -22,16 +22,16 @@
   <!-- ------------- T E M P L A T E ------------- -->
 <template>
 
-    <input type="text" v-model="newUser"> <button @click="addUser">+</button>
+    <input type="text" v-model="newUser" class="input_player"> <button @click="addUser" class="input_player_btn">+</button>
 
     <ul>
-      <li v-for="(member, key) in listMembers"> {{ member }} </li>
+      <li v-for="(member, key) in listMembers" :key="key"> {{ member }} </li>
     </ul>
 
-
-  
-    <Player v-for="(item, key) in listMembers" :key="key" :ident="key"></Player>
-
+  <div>
+    
+      <Player v-for="(item, key) in listMembers" :key="key" :ident="key"></Player>
+  </div>
 
 
 </template>
@@ -41,6 +41,14 @@
 
 
 <!-- ------------- S T Y L E ------------- -->
-<style scoped>
+<style scoped lang="scss">
+.input_player {
+  margin: 1rem;
+  &_btn {
+    margin: 0 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
 
 </style>
