@@ -1,11 +1,13 @@
 <!-- ------------- S C R I P T ------------- -->
 <script setup>
   import { ref, computed } from 'vue'
-  
+  import { RouterLink,RouterView } from 'vue-router';
   import Plateau from './components/Plateau.vue';
   import Player from './components/Player.vue';
   import {useGameStore} from '@/stores/game'
+
   const gameStore = useGameStore()
+  gameStore.getDatasApi()
   
   const members = ['Pierre', 'Jean', 'Charles']
   gameStore.addMembers(members)
@@ -17,31 +19,32 @@
   const addUser = () => {
     gameStore.addAMember(newUser.value)
   }
+
+  const parentjoueur = (value) => {
+    alert('click in joueur num ' + value)
+  }
   </script>
   
   <!-- ------------- T E M P L A T E ------------- -->
 <template>
 
-    <input type="text" v-model="newUser" class="input_player"> <button @click="addUser" class="input_player_btn">+</button>
-
-    <ul>
-      <li v-for="(member, key) in listMembers" :key="key"> {{ member }} </li>
-    </ul>
-
-  <div>
-    
-      <Player v-for="(item, key) in listMembers" :key="key" :ident="key"></Player>
-  </div>
-
+  <nav class="nav">
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/plateau">Jouer</RouterLink>
+    <RouterView/>
+  </nav>
 
 </template>
 
 
-
-
-
 <!-- ------------- S T Y L E ------------- -->
 <style scoped lang="scss">
+.nav {
+  display: inline-block;
+  & a {
+    margin: 1rem;
+  }
+}
 .input_player {
   margin: 1rem;
   &_btn {

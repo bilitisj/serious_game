@@ -1,18 +1,28 @@
 <!-- ------------- T E M P L A T E ------------- -->
 <template>
     <div class="box">
-        <p class="box_text">Case 1</p>
-        <div class="box_question">
-            <QcmMulti></QcmMulti>
+        <div class="box_question" :class="question.theme">
+            <p>Case {{ question.number }}</p>
+            <component :is="activeComponent"></component>
         </div>
     </div>
+    
 </template>
 
 
 <!-- ------------- S C R I P T ------------- -->
 <script setup>
-import QcmMulti from './QcmMulti.vue'
+import {ref} from 'vue'
+import formMultiple from '@/components/QcmMulti.vue'
+import formUnique from '@/components/QcmUnique.vue'
 
+const correspondance = {
+    "form-multiple" : formMultiple,
+    "form-unique" : formUnique
+}
+
+const props = defineProps(['question'])
+const activeComponent = ref(correspondance[props.question.qtype])
 
 </script>
 

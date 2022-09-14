@@ -1,6 +1,9 @@
 <!-- ------------- T E M P L A T E ------------- -->
 <template>
-    <p>{{thePlayer}}</p>
+    <div>
+        <p>{{thePlayer}}</p>
+
+    </div>
 </template>
 
 
@@ -11,6 +14,11 @@
 
     const props = defineProps(['ident'])
     const thePlayer = gameStore.oneJoueur(props.ident)
+    const emits = defineEmits(["clickjoueur"])
+
+    const alerteParent = () => {
+        emits('clickjoueur', props.ident)
+    }
 
 </script>
 
